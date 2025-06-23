@@ -1,5 +1,6 @@
-import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+
+import { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "./context/ThemeContext";
 import NoteCard from "./components/NoteCard";
 
@@ -100,8 +101,8 @@ const App = () => {
       }}
     >
       <h1>Учебные уроки</h1>
-      {notes.map((note, index) => (
-        <NoteCard key={index} note={note} />
+      {defaultNotes.map((note, index) => (
+        <NoteCard key={index} note={note} />  
       ))}
     </div>
   );
