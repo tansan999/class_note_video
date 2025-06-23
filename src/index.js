@@ -1,23 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import GlobalStyles, { lightTheme, darkTheme } from "./Styles/GlobalStyles";
 import { AuthProvider } from "./context/AuthContext";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProviderWrapper } from "./context/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ThemeProvider>
+  <React.StrictMode>
     <AuthProvider>
-      <ThemeContext.Consumer>
-        {({ dark }) => (
-          <StyledThemeProvider theme={dark ? darkTheme : lightTheme}>
-            <GlobalStyles />
-            <App />
-          </StyledThemeProvider>
-        )}
-      </ThemeContext.Consumer>
+      <ThemeProviderWrapper>
+        <App />
+      </ThemeProviderWrapper>
     </AuthProvider>
-  </ThemeProvider>
+  </React.StrictMode>
 );
